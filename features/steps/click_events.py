@@ -6,7 +6,7 @@ from features.environment import *
 
 @given('buttons of the animals')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/click-events/")
+    context.browser.get("https://practice-automation.com/click-events/")
 
 
 @when('I click "{button}"')

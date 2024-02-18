@@ -4,7 +4,7 @@ from features.environment import *
 
 @given('countdown timer with a start button')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/javascript-delays/")
+    context.browser.get("https://practice-automation.com/javascript-delays/")
 
 @given('picture of a rocket ship')
 def step_impl(context):

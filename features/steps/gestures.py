@@ -5,13 +5,16 @@ from features.environment import *
 
 @given('gestures examples')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/gestures/")
+    context.browser.get("https://practice-automation.com/gestures/")
 
 
 @when('I choose {element} element')
 def step_impl(context, element):
     actions = ActionChains(context.browser)
-    context.browser.find_element(By.ID, "cookie_action_close_header").click()
+    try:
+        context.browser.find_element(By.ID, "cookie_action_close_header").click()
+    except NoSuchElementException:
+        pass
     time.sleep(1)
 
     if element == 'move_me_around':
@@ -25,11 +28,11 @@ def step_impl(context, element):
         actions.drag_and_drop(logo, context.drop_target).perform()
 
     elif element == 'drag_the_map':
-        the_map = context.browser.find_element(By.CSS_SELECTOR, ".wp-block-jetpack-map-marker")
+        the_map = context.browser.find_element(By.CSS_SELECTOR, ".wp-block-jetpack-map.is-style-default")
         context.browser.execute_script("return arguments[0].scrollIntoView();", the_map)
 
         context.original_position = the_map.get_attribute("style")
-        actions.drag_and_drop_by_offset(the_map, 200, 400).perform()
+        actions.drag_and_drop_by_offset(the_map, 100, 100).perform()
         time.sleep(2)
         # context.new_position = style.split(" ")[1]
         context.new_position = the_map.get_attribute("style")

@@ -13,7 +13,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 @given('AutomateNow home page')
 @when('open AutomateNow home page')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/")
+    context.browser.get("https://practice-automation.com/")
 
 
 @then('verify that the logo is present on the page')

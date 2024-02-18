@@ -7,7 +7,7 @@ from features.environment import *
 
 @given('window operations')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/window-operations/")
+    context.browser.get("https://practice-automation.com/window-operations/")
 
 
 @when('I choose {operation}')
@@ -45,7 +45,7 @@ def step_impl(context, operation):
 
     elif operation == 'replace_window':
         current_url = context.browser.current_url
-        assert current_url == "https://www.google.com/", "Wrong URL address"
+        assert current_url == "https://automatenow.io/", "Wrong URL address"
 
 
     elif operation == 'new_window':

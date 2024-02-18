@@ -6,7 +6,7 @@ from features.environment import *
 
 @given('the simple table')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/tables/")
+    context.browser.get("https://practice-automation.com/tables/")
 
 
 @when('I extract data from the table')
@@ -23,24 +23,21 @@ def step_impl(context):
 
 @given('the search input field')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/tables/")
-
-    search_input = context.browser.find_element(By.CSS_SELECTOR, "input[type='search']")
+    context.browser.get("https://practice-automation.com/tables/")
+    context.search_input = context.browser.find_element(By.CSS_SELECTOR, "input[aria-controls='tablepress-1']")
 
 
 @when('I type {search_term}')
 def step_impl(context, search_term):
+    context.search_term = search_term
     context.search_input.send_keys(search_term)
 
     time.sleep(2)
 
 
 @then('the table should show only the row of interest')
-def step_impl(context, search_term):
-    # Find the table rows
-    rows = context.browser.find_element(By.XPATH, "//*[@id='tablepress-1']/tbody/tr")
-    # Check that only one row is displayed
-    # assert len(rows) == 1
-    # Check that the row text matches the search term
-    row_text = rows[0].text
-    assert search_term in row_text
+def step_impl(context):
+    time.sleep(2)
+    rows = context.browser.find_elements(By.XPATH, "//table[@id='tablepress-1']/tbody/tr")
+
+    assert len(rows) == 1, f"Expected 1 row in the table after filtering, but found {len(rows)}."

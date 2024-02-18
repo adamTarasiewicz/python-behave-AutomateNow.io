@@ -5,7 +5,7 @@ from features.environment import *
 
 @given('the images')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/broken-images/")
+    context.browser.get("https://practice-automation.com/broken-images/")
 
 
 @when('the site is loaded')

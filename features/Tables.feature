@@ -12,9 +12,9 @@ Feature: Tables
 
     Examples:
     |search_term|
-    |2          |
+    |25         |
     |India      |
-    |1,380      |
+    |1,429      |
 
 """
   Scenario: Sortable table - show 10 or 25 results

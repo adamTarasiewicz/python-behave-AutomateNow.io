@@ -5,7 +5,7 @@ from features.environment import *
 
 @given('the spinner element')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/spinners/")
+    context.browser.get("https://practice-automation.com/spinners/")
 
 
 @when('I wait for the spinner to be present on the page')
